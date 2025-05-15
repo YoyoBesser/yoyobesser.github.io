@@ -6,4 +6,7 @@ order: 4
 
 # Yonatan Besser 
 
-Just a chill DevOps engineer
+Currently into DevOps, specialty coffee, and Crossfit (not necessarily in that order)
+
+
+
