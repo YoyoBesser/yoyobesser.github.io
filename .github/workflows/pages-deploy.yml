@@ -44,25 +44,25 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
-          working-directory: "${{ github.workspace	}}/jekyll"
+          working-directory: "${{ github.workspace }}/jekyll"
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
-        working-directory: "${{ github.workspace	}}/jekyll"
+        working-directory: "${{ github.workspace }}/jekyll"
 
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
-        working-directory: "${{ github.workspace	}}/jekyll"
+        working-directory: "${{ github.workspace }}/jekyll"
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "_site${{ steps.pages.outputs.base_path }}"
+          path: "${{ github.workspace }}/jekyll/_site${{ steps.pages.outputs.base_path }}"
 
   deploy:
     environment:
